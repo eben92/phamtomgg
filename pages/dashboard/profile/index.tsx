@@ -64,7 +64,6 @@ const Profile = () => {
     }
   ];
 
-  console.log(admin);
   const getPharmacy = async () => {
     try {
       const data = await pharmacyService.getPharmacy(
@@ -78,9 +77,9 @@ const Profile = () => {
   };
 
   // CORS issue
-  useEffect(() => {
-    getPharmacy();
-  }, []);
+  // useEffect(() => {
+  //   getPharmacy();
+  // }, []);
 
   return (
     <DashboardLayout>
