@@ -12,8 +12,7 @@ import { Modal } from 'react-bootstrap';
 const Payments = () => {
   const [show, setShow] = useState(false);
 
-  const handleClose = (e: any) => {
-    e.preventDefault();
+  const handleClose = () => {
     setEnterPin(false);
     setShow(false);
   };
