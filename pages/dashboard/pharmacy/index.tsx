@@ -18,7 +18,7 @@ import {
 const Pharmacy: NextPage = () => {
   const [showAddNewProductModal, setShowAddNewProductModal]: any =
     useState(false);
-  const [showAddCourier, setShowAddCourier] = useState(false);
+  const [showAddCourier, setShowAddCourier] = useState(true);
   const [showAllProducts, setShowAllProducts] = useState(true);
   const [activePharmacy, setActivePharmacy] = useState(true);
 

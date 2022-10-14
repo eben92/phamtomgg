@@ -9,15 +9,20 @@ const Footer = () => {
         </div>
 
         <div className='copyright'>
-          <p>Copyright. 2022 </p>
+          <p>
+            Copyright. 2022 -{' '}
+            <a href='//ebenfrimpong.com' target={'_blank'}>
+              @eBEN
+            </a>{' '}
+          </p>
 
           <div className=''>
-            <Link href='/terms-of-services'>
+            <Link href='/'>
               <a>
                 <p>Terms of Services</p>
               </a>
             </Link>
-            <Link href='/privacy-policy'>
+            <Link href='/'>
               <a>
                 <p>Privacy Policy</p>
               </a>

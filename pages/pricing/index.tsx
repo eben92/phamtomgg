@@ -75,7 +75,7 @@ const Pricing: NextPage = () => {
           <Banner
             height={screenSize.width >= 821 ? '300px' : '200px'}
             linkName='Contact support'
-            linkTo='phamtom-support'
+            linkTo='/'
             content={
               <>
                 <p>Need some Guidance?</p>

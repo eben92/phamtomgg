@@ -97,18 +97,14 @@ const About: NextPage = () => {
                       first point of care for many consumers.
                     </p>
                     <p>
-                      However, patients, especially residents in rural and
-                      underserved urban areas still struggle to locate
-                      pharmacies that stocked their preferred products, at
-                      competitive price without compromising on high quality.
-                      According to a report, 3768 community pharmacies were
-                      registered in Nigeria as at 2016 (Estimated to be above
-                      5500 as at 2022) and over 40% of these pharmacies are
-                      located in Lagos and FCT (Major urban areas in Nigeria)
-                      which make up less than 10% of the country&apos;s
-                      population. Hence, leaving over 50% of the population to
-                      source their medications from local drug stores and
-                      peddlers at exorbitant prices.{' '}
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Fuga sit qui deleniti libero asperiores beatae sequi!
+                      Obcaecati molestiae quibusdam aliquid eum provident
+                      aperiam illum cumque soluta, quidem tempora ratione qui.
+                      Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                      Fuga sit qui deleniti libero asperiores beatae sequi!
+                      Obcaecati molestiae quibusdam aliquid eum provident
+                      aperiam illum cumque soluta, quidem tempora ratione qui.
                     </p>
                     <p>
                       Pharmacies and clinics still lack access to EHR that
@@ -165,7 +161,7 @@ const About: NextPage = () => {
             <Banner
               height={screenSize.width >= 821 ? '300px' : '200px'}
               linkName='Get started'
-              linkTo='get-started'
+              linkTo='auth/signup'
               content='Signup to join our rapidly growing community of digital healthcare providers today.'
             />
           </div>
