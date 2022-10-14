@@ -5,20 +5,20 @@ import { Button, Input } from '../../../components/dashboard';
 import { staffsService } from '../../../services/restService';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { setStaff } from '../../../redux/actions/staffs';
 
 interface IAddNewStaffProps {
   showAddNewStaffModal: boolean;
   onHide: () => void;
   styles: any;
   admin: any;
-  handleGetStaffs: () => void;
 }
 const AddNewStaff = ({
   showAddNewStaffModal,
   onHide,
   styles,
-  admin,
-  handleGetStaffs
+  admin
 }: IAddNewStaffProps) => {
   const [inputField, setInputField] = useState({
     first_name: '',
@@ -28,8 +28,11 @@ const AddNewStaff = ({
     dob: '',
     role: ''
   });
-  const [loading, setLoading] = useState(false);
 
+  const { staffs } = useSelector((state: any) => state.staffsReducer);
+
+  const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
   const onInputChange = (e: any) => {
     setInputField({ ...inputField, [e.target.name]: e.target.value });
   };
@@ -49,9 +52,7 @@ const AddNewStaff = ({
     setLoading(true);
 
     try {
-      const data = await staffsService.addStaff(admin.access_token, staffData);
-    
-      handleGetStaffs();
+      dispatch(setStaff([...staffs, staffData]));
 
       reset();
     } catch (error) {
@@ -61,7 +62,6 @@ const AddNewStaff = ({
       onHide();
     }
   };
-
 
   return (
     <div className={styles.modal_container}>

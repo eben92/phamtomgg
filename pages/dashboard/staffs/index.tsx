@@ -37,23 +37,6 @@ const Staffs: NextPage = () => {
     setCurrentTab(tab);
   };
 
-  useEffect(() => {
-    handleGetStaffs();
-  }, []);
-
-  const handleGetStaffs = async () => {
-    try {
-      const {
-        data: { staffs }
-      } = await staffsService.getAllStaffs(admin.access_token);
-
-    
-      dispatch(setStaff(staffs.reverse()));
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   const handleOpenStaffInfo = () => {
     const slider = document.getElementById('CHATS_SLIDER') as HTMLElement;
     slider.classList.add('slide_right');
@@ -100,15 +83,15 @@ const Staffs: NextPage = () => {
               <div>
                 <ul className={styles.all_patients_container}>
                   {staffs
-                    .filter((item: any) => {
+                    ?.filter((item: any) => {
                       if (searchTerm !== '') {
                         return (
                           item.first_name
-                            .toLowerCase()
-                            .includes(searchTerm.toLowerCase()) ||
+                            ?.toLowerCase()
+                            ?.includes(searchTerm?.toLowerCase()) ||
                           item.last_name
-                            .toLowerCase()
-                            .includes(searchTerm.toLowerCase())
+                            ?.toLowerCase()
+                            ?.includes(searchTerm?.toLowerCase())
                         );
                       } else {
                         return item;
@@ -143,7 +126,8 @@ const Staffs: NextPage = () => {
 
                         <hr />
                       </li>
-                    ))}
+                    ))
+                    .reverse()}
                 </ul>
               </div>
             </div>
@@ -206,7 +190,6 @@ const Staffs: NextPage = () => {
         showAddNewStaffModal={showAddNewStaffModal}
         onHide={handleHideAddNewStaffModal}
         admin={admin}
-        handleGetStaffs={handleGetStaffs}
       />
     </DashboardLayout>
   );

@@ -18,74 +18,74 @@ const Telechat: NextPage = () => {
   const { admin } = useSelector((state: any) => state.adminReducer);
   const [selectedChat, setSelectedChat]: any = useState({});
   const [channelId, setChannelId] = useState('');
-  const client = StreamChat.getInstance('wbxtm8wdzzpz');
+  // const client = StreamChat.getInstance('wbxtm8wdzzpz');
 
-  const connectAdmin = async () => {
-    try {
-      const data: any = await client.connectUser(
-        {
-          id: admin.stream_user_id,
-          name: admin.name_of_institution,
-          image: 'https://i.imgur.com/fR9Jz14.png'
-        },
-        admin.stream_user_token
-      );
-      console.log(data, ' <---connected');
-      connectChannel(data.connection_id);
-      setChannelId(data.connection_id);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const connectAdmin = async () => {
+  //   try {
+  //     const data: any = await client.connectUser(
+  //       {
+  //         id: admin.stream_user_id,
+  //         name: admin.name_of_institution,
+  //         image: 'https://i.imgur.com/fR9Jz14.png'
+  //       },
+  //       admin.stream_user_token
+  //     );
+  //     console.log(data, ' <---connected');
+  //     connectChannel(data.connection_id);
+  //     setChannelId(data.connection_id);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const connectChannel = async (channelId: any) => {
-    try {
-      const channel = client.channel('messaging', channelId, {
-        name: 'Health Check'
-      });
+  // const connectChannel = async (channelId: any) => {
+  //   try {
+  //     const channel = client.channel('messaging', channelId, {
+  //       name: 'Health Check'
+  //     });
 
-      const data = await channel.watch();
-      console.log(data, 'channel');
+  //     const data = await channel.watch();
+  //     console.log(data, 'channel');
 
-      // const text = 'I’m mowing the air Randy, I’m mowing the air.';
+  //     // const text = 'I’m mowing the air Randy, I’m mowing the air.';
 
-      // const response = await channel.sendMessage({
-      //   text,
-      //   customField: '123'
-      // });
+  //     // const response = await channel.sendMessage({
+  //     //   text,
+  //     //   customField: '123'
+  //     // });
 
-      // console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     // console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  const getMessages = async () => {
-    try {
-      const channel = client.channel('messaging', channelId, {
-        name: 'Health Check'
-      });
+  // const getMessages = async () => {
+  //   try {
+  //     const channel = client.channel('messaging', channelId, {
+  //       name: 'Health Check'
+  //     });
 
-      const { messages } = await channel.watch();
-      // console.log(data, 'channel');
+  //     const { messages } = await channel.watch();
+  //     // console.log(data, 'channel');
 
-      // const text = 'I’m mowing the air Randy, I’m mowing the air.';
+  //     // const text = 'I’m mowing the air Randy, I’m mowing the air.';
 
-      // const response = await channel.sendMessage({
-      //   text,
-      //   customField: '123'
-      // });
+  //     // const response = await channel.sendMessage({
+  //     //   text,
+  //     //   customField: '123'
+  //     // });
 
-      // console.log(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     // console.log(response);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useMemo(() => {
-    connectAdmin();
-    console.log(admin, 'add');
-  }, []);
+  // useMemo(() => {
+  //   connectAdmin();
+  //   console.log(admin, 'add');
+  // }, []);
 
   const chats = [
     {

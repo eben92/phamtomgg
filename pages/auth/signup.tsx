@@ -69,11 +69,6 @@ const Signup = () => {
     setIsLoading(true);
 
     try {
-      const response = await registerAdmin(inputFields);
-  
-
-      saveCredentials(inputFields.email, inputFields.password);
-
       setInputFields({
         email: '',
         name_of_institution: '',
@@ -142,7 +137,6 @@ const Signup = () => {
                 containerClass='phone_input_container'
                 placeholder='Phone number'
                 onChange={(phone: any) => {
-                
                   setInputFields({ ...inputFields, phone_number: phone });
                 }}
                 value={inputFields.phone_number}

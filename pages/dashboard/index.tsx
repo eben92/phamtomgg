@@ -1,36 +1,37 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { attemptLoginAdmin } from '../../services/restService';
+// import { attemptLoginAdmin } from '../../services/restService';
 import { getCredentials, redirectTo } from '../../services/localService';
 import { MoonLoader } from 'react-spinners';
 const Index = () => {
   const { push } = useRouter();
 
   useEffect(() => {
-    const credentials = getCredentials();
-    if (credentials) {
-   
-      attemptLogin(credentials.email, credentials.password);
-    } else {
-      push('/auth/login');
-    }
+    // const credentials = getCredentials();
+    // if (credentials) {
+    setTimeout(() => {
+      attemptLogin();
+    }, 4000);
+    // } else {
+    //   push('/auth/login');
+    // }
   }, []);
 
-  const attemptLogin = async (email: any, password: any) => {
+  const attemptLogin = async () => {
     try {
-      await attemptLoginAdmin({ user_email_phone: email, password });
+      // await attemptLoginAdmin({ user_email_phone: email, password });
 
-      const path: any = redirectTo();
+      // const path: any = redirectTo();
 
-      if (path) {
-        push(path);
-      } else {
-        push('/dashboard/EHR');
-      }
+      // if (path) {
+      //   push(path);
+      // } else {
+      push('/dashboard/EHR');
+      // }
     } catch (error) {
       console.log(error);
 
-      push('/auth/login');
+      // push('/auth/login');
     }
   };
 

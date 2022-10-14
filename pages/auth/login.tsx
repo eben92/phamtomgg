@@ -23,8 +23,8 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [inputFields, setInputFields] = useState({
-    user_email_phone: '',
-    password: ''
+    user_email_phone: 'guest@guest.com',
+    password: 'guest@guest.com'
   });
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -48,19 +48,34 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const { data } = await loginAdmin(inputFields);
-      const path: any = redirectTo();
+      // const { data } = await loginAdmin(inputFields);
+      // const path: any = redirectTo();
 
-      saveToken(data.access_token);
+      saveToken('eyJhbGcMiOiIzcmQzYiLCest_5H3MFYc');
       saveCredentials(inputFields.user_email_phone, inputFields.password);
-      dispatch(setAdmin({ ...data.admin, access_token: data.access_token }));
-      setInputFields({ user_email_phone: '', password: '' });
+      dispatch(
+        setAdmin({
+          access_token: 'eyJhbGcMiOiIzcmQzYiLCest_5H3MFYc',
+          address: '3rd street',
+          admin_id: '1UuHpaL4U',
+          email: 'guest@guest.com',
+          name_of_institution: 'Guest Health',
+          permission_flag: 2,
+          phone_number: '23312344444',
+          registration_number: '56756754354',
+          stream_user_id: '945e06a9792387e0376f6',
+          stream_user_token: 'eyJhU77jGB5fqgTU',
+          subscription_permission_flag: 1,
+          _id: '62f8c6e2746d59ed2afc537a'
+        })
+      );
+      // setInputFields({ user_email_phone: '', password: '' });
 
-      if (path) {
-        push(path);
-      } else {
-        push('/dashboard/EHR');
-      }
+      // if (path) {
+      // push(path);
+      // } else {
+      push('/dashboard/EHR');
+      // }
     } catch (err: any) {
       console.log(err);
       setError(true);
