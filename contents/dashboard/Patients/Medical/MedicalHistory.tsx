@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '../../../../components/dashboard';
 import { setPatientMedicalHistory } from '../../../../redux/actions/patients';
 import { useSelector, useDispatch } from 'react-redux';
-import { medicalHistoryService } from '../../../../services/restService';
+// import { medicalHistoryService } from '../../../../services/restService';
 import { Modal } from 'react-bootstrap';
 import moment from 'moment';
 import { MoonLoader } from 'react-spinners';
@@ -48,13 +48,13 @@ const MedicalHistory = ({
     setIsAdding(true);
 
     try {
-      await medicalHistoryService.addMedicalHistory(
-        inputFields,
-        selectedPatient.patient_demographic.patient_recordId,
-        admin.access_token
-      );
+      // await medicalHistoryService.addMedicalHistory(
+      //   inputFields,
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   admin.access_token
+      // );
 
-      getAllMedicalHistory();
+      // getAllMedicalHistory();
 
       setInputFields({
         medical_history: '',
@@ -75,28 +75,27 @@ const MedicalHistory = ({
     setIsFetching(true);
     setEmptyState(null);
     try {
-      const {
-        data: {
-          // eslint-disable-next-line camelcase
-          data: { patient_medical_histories }
-        }
-      } = await medicalHistoryService.getAllMedicalHistory(
-        selectedPatient.patient_demographic.patient_recordId,
-        admin.access_token
-      );
-
-      if (
-        // eslint-disable-next-line camelcase
-        patient_medical_histories &&
-        // eslint-disable-next-line camelcase
-        typeof patient_medical_histories !== 'string'
-      ) {
-        // eslint-disable-next-line camelcase
-        dispatch(setPatientMedicalHistory(patient_medical_histories.reverse()));
-      } else {
-        dispatch(setPatientMedicalHistory([]));
-        setEmptyState('No history found');
-      }
+      // const {
+      //   data: {
+      //     // eslint-disable-next-line camelcase
+      //     data: { patient_medical_histories }
+      //   }
+      // } = await medicalHistoryService.getAllMedicalHistory(
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   admin.access_token
+      // );
+      // if (
+      //   // eslint-disable-next-line camelcase
+      //   patient_medical_histories &&
+      //   // eslint-disable-next-line camelcase
+      //   typeof patient_medical_histories !== 'string'
+      // ) {
+      //   // eslint-disable-next-line camelcase
+      //   dispatch(setPatientMedicalHistory(patient_medical_histories.reverse()));
+      // } else {
+      //   dispatch(setPatientMedicalHistory([]));
+      //   setEmptyState('No history found');
+      // }
     } catch (error) {
       console.log(error);
     } finally {
@@ -106,18 +105,18 @@ const MedicalHistory = ({
 
   const getSingleMedicalHistory = async () => {
     try {
-      const data = await medicalHistoryService.getSingleMedicalHistory(
-        selectedPatient.patient_demographic.patient_recordId,
-        patientMedicalHistory[0].medical_history_id,
-        admin.access_token
-      );
+      // const data = await medicalHistoryService.getSingleMedicalHistory(
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   patientMedicalHistory[0].medical_history_id,
+      //   admin.access_token
+      // );
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getAllMedicalHistory();
+    // getAllMedicalHistory();
     // getSingleMedicalHistory();
   }, [selectedPatient]);
 

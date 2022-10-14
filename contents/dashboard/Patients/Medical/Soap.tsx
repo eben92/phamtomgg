@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button } from '../../../../components/dashboard';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPatientSoap } from '../../../../redux/actions/patients';
-import { soapService } from '../../../../services/restService';
+// import { soapService } from '../../../../services/restService';
 import { Modal } from 'react-bootstrap';
 import moment from 'moment';
 import { MoonLoader } from 'react-spinners';
@@ -42,11 +42,11 @@ const Soap = ({ medicalHistory, setSelectedRecord, styles, Image }: any) => {
     setIsAdding(true);
 
     try {
-      await soapService.addSOAP(
-        selectedPatient.patient_demographic.patient_recordId,
-        inputFields,
-        admin.access_token
-      );
+      // await soapService.addSOAP(
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   inputFields,
+      //   admin.access_token
+      // );
 
       setInputFields({
         subjective: '',
@@ -54,7 +54,7 @@ const Soap = ({ medicalHistory, setSelectedRecord, styles, Image }: any) => {
         assessment: '',
         plan: ''
       });
-      getAllSoap();
+      // getAllSoap();
     } catch (error) {
       console.log(error);
     } finally {
@@ -71,24 +71,23 @@ const Soap = ({ medicalHistory, setSelectedRecord, styles, Image }: any) => {
     setIsFetching(true);
     setEmptyState(null);
     try {
-      const {
-        data: {
-          // eslint-disable-next-line camelcase
-          data: { patient_assessments }
-        }
-      } = await soapService.getAllSOAP(
-        selectedPatient.patient_demographic.patient_recordId,
-        admin.access_token
-      );
-
+      // const {
+      //   data: {
+      //     // eslint-disable-next-line camelcase
+      //     data: { patient_assessments }
+      //   }
+      // } = await soapService.getAllSOAP(
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   admin.access_token
+      // );
       // eslint-disable-next-line camelcase
-      if (patient_assessments && typeof patient_assessments !== 'string') {
-        // eslint-disable-next-line camelcase
-        dispatch(setPatientSoap(patient_assessments.reverse()));
-      } else {
-        dispatch(setPatientSoap([]));
-        setEmptyState('No history found');
-      }
+      // if (patient_assessments && typeof patient_assessments !== 'string') {
+      //   // eslint-disable-next-line camelcase
+      //   dispatch(setPatientSoap(patient_assessments.reverse()));
+      // } else {
+      //   dispatch(setPatientSoap([]));
+      //   setEmptyState('No history found');
+      // }
     } catch (error) {
       console.log(error);
     } finally {

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Button, Input } from '../../../../components/dashboard';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPatientLabTests } from '../../../../redux/actions/patients';
-import { labService } from '../../../../services/restService';
+// import { labService } from '../../../../services/restService';
 import { Modal } from 'react-bootstrap';
 import produce from 'immer';
 
@@ -55,13 +55,13 @@ const LabTests = ({
     setIsLoading(true);
 
     try {
-      const data = await labService.addLabTest(
-        selectedPatient.patient_demographic.patient_recordId,
-        inputFields[0],
-        admin.access_token
-      );
+      // const data = await labService.addLabTest(
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   inputFields[0],
+      //   admin.access_token
+      // );
 
-      console.log(data);
+      // console.log(data);
       setInputFields([
         {
           test_name: '',
@@ -80,22 +80,21 @@ const LabTests = ({
 
   const getAllLabTests = async () => {
     try {
-      const {
-        data: {
-          data: { data }
-        }
-      } = await labService.getAllLabTest(
-        selectedPatient.patient_demographic.patient_recordId,
-        admin.access_token
-      );
-
-      if (typeof data !== 'string') {
-        dispatch(setPatientLabTests(data));
-        setEmptyState(null);
-      } else {
-        dispatch(setPatientLabTests([]));
-        setEmptyState('No test found');
-      }
+      // const {
+      //   data: {
+      //     data: { data }
+      //   }
+      // } = await labService.getAllLabTest(
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   admin.access_token
+      // );
+      // if (typeof data !== 'string') {
+      //   dispatch(setPatientLabTests(data));
+      //   setEmptyState(null);
+      // } else {
+      //   dispatch(setPatientLabTests([]));
+      //   setEmptyState('No test found');
+      // }
     } catch (error) {
       console.log(error);
     }

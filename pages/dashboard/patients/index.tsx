@@ -5,7 +5,7 @@ import {
   setPatients,
   setSelectedPatient
 } from '../../../redux/actions/patients';
-import { patientsService } from '../../../services/restService';
+// import { patientsService } from '../../../services/restService';
 import {
   DashboardLayout,
   Input,
@@ -47,10 +47,10 @@ const Patients: NextPage = () => {
 
   const handleGetAllPatients = async () => {
     try {
-      const {
-        data: { patients }
-      } = await patientsService.getAllPatients(admin.access_token);
-      dispatch(setPatients(patients.reverse()));
+      // const {
+      //   data: { patients }
+      // } = await patientsService.getAllPatients(admin.access_token);
+      // dispatch(setPatients(patients.reverse()));
     } catch (error) {
       console.log(error);
     }
