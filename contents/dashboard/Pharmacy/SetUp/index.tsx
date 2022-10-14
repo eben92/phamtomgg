@@ -5,7 +5,7 @@ import Step1 from './Step1';
 import Step2 from './Step2';
 import Step3 from './Step3';
 import Step4 from './Step4';
-import { pharmacyService } from '../../../../services/restService';
+// import { pharmacyService } from '../../../../services/restService';
 
 const SetUpPharmacy = ({ styles }: any) => {
   const { admin } = useSelector((state: any) => state.adminReducer);
@@ -34,13 +34,13 @@ const SetUpPharmacy = ({ styles }: any) => {
   const handleSumbmit = async (e: any) => {
     e.preventDefault();
     try {
-      const data = await pharmacyService.setupPharmacy(
-        admin._id,
-        inputFields,
-        admin.access_token
-      );
+      // const data = await pharmacyService.setupPharmacy(
+      //   admin._id,
+      //   inputFields,
+      //   admin.access_token
+      // );
 
-      console.log(data);
+      // console.log(data);
       setCurrentStep('Step4');
     } catch (error) {
       console.log(error);

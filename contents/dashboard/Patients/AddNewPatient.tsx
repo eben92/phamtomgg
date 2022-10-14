@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { Modal } from 'react-bootstrap';
 import { Button, Input } from '../../../components/dashboard';
-import { patientsService } from '../../../services/restService';
+// import { patientsService } from '../../../services/restService';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
 
@@ -48,11 +48,12 @@ const AddNewPatient = ({
     e.preventDefault();
 
     try {
-      const data = await patientsService.addPatient(
-        inputField,
-        admin.access_token
-      );
-      handleGetAllPatients();
+      // const data = await patientsService.addPatient(
+      //   inputField,
+      //   admin.access_token
+      // );
+      // handleGetAllPatients();
+      
     } catch (error) {
       console.log(error);
     } finally {

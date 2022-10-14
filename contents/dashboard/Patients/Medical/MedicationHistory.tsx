@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Button, Input } from '../../../../components/dashboard';
 import { setPatientMedicalHistory } from '../../../../redux/actions/patients';
 import { useSelector, useDispatch } from 'react-redux';
-import { medicationService } from '../../../../services/restService';
+// import { medicationService } from '../../../../services/restService';
 import { Modal } from 'react-bootstrap';
 import produce from 'immer';
 
@@ -54,11 +54,11 @@ const MedicationHistory = ({
     setIsLoading(true);
 
     try {
-      const data = await medicationService.addMedicationHistory(
-        selectedPatient.patient_demographic.patient_recordId,
-        inputFields[0],
-        admin.access_token
-      );
+      //   const data = await medicationService.addMedicationHistory(
+      //     selectedPatient.patient_demographic.patient_recordId,
+      //     inputFields[0],
+      //     admin.access_token
+      //   );
 
       setInputFields([
         {
@@ -97,9 +97,9 @@ const MedicationHistory = ({
   //   }
   // };
 
-  useEffect(() => {
-    // getAllMedicationHistory();
-  }, [selectedPatient]);
+  // useEffect(() => {
+  //   // getAllMedicationHistory();
+  // }, [selectedPatient]);
 
   return (
     <>

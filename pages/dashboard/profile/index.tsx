@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
-import { pharmacyService } from '../../../services/restService';
+// import { pharmacyService } from '../../../services/restService';
 import { Button, DashboardLayout, Input } from '../../../components/dashboard';
 import styles from '../../../styles/dashboard/Profile.module.scss';
 import { Modal } from 'react-bootstrap';
@@ -52,29 +52,29 @@ const Profile = () => {
   const pharmacy = [
     {
       label: 'NAME OF PHARMACY',
-      value: 'Institution Name'
+      value: 'Good Health'
     },
     {
       label: 'EMIAL ADDRESS',
-      value: 'Institution Name'
+      value: 'goodh@gmail.com'
     },
     {
       label: 'PHARMACY ADDRESS',
-      value: 'Institution Name'
+      value: '23rd Street'
     }
   ];
 
-  const getPharmacy = async () => {
-    try {
-      const data = await pharmacyService.getPharmacy(
-        admin._id,
-        admin.access_token
-      );
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getPharmacy = async () => {
+  //   try {
+  //     const data = await pharmacyService.getPharmacy(
+  //       admin._id,
+  //       admin.access_token
+  //     );
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   // CORS issue
   // useEffect(() => {

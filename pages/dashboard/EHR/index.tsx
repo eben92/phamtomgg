@@ -4,9 +4,9 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import styles from '../../../styles/dashboard/EHR.module.scss';
 import { useSelector, useDispatch } from 'react-redux';
-import { patientsService, staffsService } from '../../../services/restService';
-import { setPatients } from '../../../redux/actions/patients';
-import { setStaff } from '../../../redux/actions/staffs';
+// import { patientsService, staffsService } from '../../../services/restService';
+// import { setPatients } from '../../../redux/actions/patients';
+// import { setStaff } from '../../../redux/actions/staffs';
 import { Badge, Button, DashboardLayout } from '../../../components/dashboard';
 import { AddNewPatient } from '../../../contents/dashboard/Patients';
 import modalStyles from '../../../styles/dashboard/Patients.module.scss';
@@ -16,6 +16,7 @@ const EHR: NextPage = () => {
   const dispatch = useDispatch();
   const { push } = useRouter();
   const { admin } = useSelector((state: any) => state.adminReducer);
+
   const { patients } = useSelector((state: any) => state.patientsReducer);
   const { staffs } = useSelector((state: any) => state.staffsReducer);
 
@@ -31,18 +32,6 @@ const EHR: NextPage = () => {
 
   const handleHideAddNewStaffModal = () => {
     setShowAddNewStaffModal(false);
-  };
-
-  const handleGetStaffs = async () => {
-    try {
-      const {
-        data: { staffs }
-      } = await staffsService.getAllStaffs(admin.access_token);
-
-      dispatch(setStaff(staffs.reverse()));
-    } catch (error) {
-      console.log(error);
-    }
   };
 
   const cards = [
@@ -93,20 +82,21 @@ const EHR: NextPage = () => {
   ];
 
   useEffect(() => {
-    handleGetAllPatients();
+    // handleGetAllPatients();
   }, []);
 
   useEffect(() => {
-    getPatientsAddedToday();
     getTotalPatients();
+
+    setPatientsAddedTday(patients.length - 3);
   }, [patients]);
 
   const handleGetAllPatients = async () => {
     try {
-      const {
-        data: { patients }
-      } = await patientsService.getAllPatients(admin.access_token);
-      dispatch(setPatients(patients.reverse()));
+      // const {
+      // data: { patients }
+      // } = await patientsService.getAllPatients(admin.access_token);
+      // dispatch(setPatients(patients.reverse()));
     } catch (error) {
       console.log(error);
     }
@@ -114,26 +104,8 @@ const EHR: NextPage = () => {
 
   const getTotalPatients = async () => {
     try {
-      const {
-        data: {
-          data: { data }
-        }
-      } = await patientsService.getTotalPatients(admin.access_token);
-
-      setTotalPatients(data);
+      setTotalPatients(patients.length);
     } catch (e) {
-      console.log(e);
-    }
-  };
-  const getPatientsAddedToday = async () => {
-    try {
-      const {
-        data: {
-          data: { data }
-        }
-      } = await patientsService.getPatientsAddedToday(admin.access_token);
-      setPatientsAddedTday(data);
-    } catch (e: any) {
       console.log(e);
     }
   };
@@ -377,7 +349,6 @@ const EHR: NextPage = () => {
         showAddNewStaffModal={showAddNewStaffModal}
         onHide={handleHideAddNewStaffModal}
         admin={admin}
-        handleGetStaffs={handleGetStaffs}
       />
       <AddNewPatient
         admin={admin}

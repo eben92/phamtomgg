@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Button, Input } from '../../../../components/dashboard';
 import { useSelector } from 'react-redux';
-import { vitalSignsService } from '../../../../services/restService';
+// import { vitalSignsService } from '../../../../services/restService';
 import { Modal } from 'react-bootstrap';
 import moment from 'moment';
 import { MoonLoader } from 'react-spinners';
@@ -47,11 +47,11 @@ const Vitals = ({ medicalHistory, setSelectedRecord, styles, Image }: any) => {
     setIsLoading(true);
 
     try {
-      await vitalSignsService.addVitalSigns(
-        selectedPatient.patient_demographic.patient_recordId,
-        inputFields,
-        admin.access_token
-      );
+      // await vitalSignsService.addVitalSigns(
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   inputFields,
+      //   admin.access_token
+      // );
 
       setInputFields(reset);
     } catch (error) {
@@ -65,16 +65,16 @@ const Vitals = ({ medicalHistory, setSelectedRecord, styles, Image }: any) => {
     setIsFetching(true);
 
     try {
-      const {
-        data: {
-          data: { patient_vital_signs }
-        }
-      } = await vitalSignsService.getVitalSigns(
-        selectedPatient.patient_demographic.patient_recordId,
-        admin.access_token
-      );
+      // const {
+      //   data: {
+      //     data: { patient_vital_signs }
+      //   }
+      // } = await vitalSignsService.getVitalSigns(
+      //   selectedPatient.patient_demographic.patient_recordId,
+      //   admin.access_token
+      // );
 
-      setVitalSigns(patient_vital_signs);
+      // setVitalSigns(patient_vital_signs);
     } catch (error) {
       console.log(error);
     } finally {

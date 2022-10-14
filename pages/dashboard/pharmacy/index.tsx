@@ -19,8 +19,8 @@ const Pharmacy: NextPage = () => {
   const [showAddNewProductModal, setShowAddNewProductModal]: any =
     useState(false);
   const [showAddCourier, setShowAddCourier] = useState(false);
-  const [showAllProducts, setShowAllProducts] = useState(false);
-  const [activePharmacy, setActivePharmacy] = useState(false);
+  const [showAllProducts, setShowAllProducts] = useState(true);
+  const [activePharmacy, setActivePharmacy] = useState(true);
 
   const handleCloseAddCourier = () => setShowAddCourier(false);
 

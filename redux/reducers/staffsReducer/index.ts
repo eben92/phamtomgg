@@ -1,7 +1,17 @@
 import * as TYPES from '../../types';
 
 const initialState = {
-  staffs: [],
+  staffs: [
+    {
+      dob: '2022-09-08T00:00:00.000Z',
+      email: 'michael@nurse.com',
+      first_name: 'Michael',
+      last_name: 'Hale',
+      permission_flag: 4,
+      phone_number: '234654654645',
+      role: 'PHARMACIST'
+    }
+  ],
   selectedStaff: {}
 };
 
