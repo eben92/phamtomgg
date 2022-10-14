@@ -31,27 +31,27 @@ const Footer = () => {
           {/* Phone */}
           <div>
             <h5>Phone: </h5>
-            <p> +234 7025550596</p>
+            <p> +2xx xxx xxx xxx</p>
           </div>
 
           {/* Office */}
           <div>
             <h5>Office: </h5>
-            <p> 5B, Quivers Court, Ajah, Lagos State, Nigeria</p>
+            <p> 12th Street, AB town</p>
           </div>
 
           {/* email */}
           <div className='email'>
             <Image src={'/assets/footer/email.svg'} height={16} width={20} />
             <div>
-              <p>phamtom@phamtomhealth.com</p>
-              <p>phamtom.inc@gmail.com</p>
+              <p>example@example.com</p>
+              <p>example.inc@example.com</p>
             </div>
           </div>
 
           {/* socials */}
           <div className='socials'>
-            <Link href={'https://www.instagram.com/phamtom.inc?r=nametag'}>
+            <Link href={'/'}>
               <a className='instagram' target='_blank'>
                 <Image
                   src={'/assets/footer/instagram.svg'}
@@ -60,7 +60,7 @@ const Footer = () => {
                 />
               </a>
             </Link>
-            <Link href={'https://www.linkedin.com/company/phamtom-health/'}>
+            <Link href={'/'}>
               <a target='_blank'>
                 <Image
                   src={'/assets/footer/linkdn.svg'}
